@@ -25,12 +25,12 @@ void swap(int *a, int *b)
 void bubble_sort(int *array, size_t size)
 {
 	int swapped;
-	size_t i,k, len = size;
+	size_t i, k, len = size;
 
 	if (array == NULL || size < 2)
 		return;
 
-	while(1)
+	while (1)
 	{
 		swapped = 0;
 
@@ -47,7 +47,7 @@ void bubble_sort(int *array, size_t size)
 				swapped = 1;
 			}
 		}
-		
+
 		if (!swapped)
 		{
 			break;
