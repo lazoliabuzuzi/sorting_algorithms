@@ -11,29 +11,29 @@ void insert_node(listint_t **list, listint_t **sorted, listint_t *current)
 {
 	listint_t *temp = *sorted;
 
-	 while (temp != NULL && temp->n < current->n)
-		  temp = temp->next;
+	while (temp != NULL && temp->n < current->n)
+		temp = temp->next;
 
-	 if (temp == NULL)
-	 {
-		 current->prev = *sorted;
-		 current->next = NULL;
-		 if (*sorted != NULL)
-			 (*sorted)->next = current;
-		 *sorted = current;
-	 }
-	 else
-	 {
-		 current->prev = temp->prev;
-		 current->next = temp;
-		 if (temp->prev != NULL)
-			 temp->prev->next = current;
-		 else
-			 *list = current;
-		 temp->prev = current;
-	 }
+	if (temp == NULL)
+	{
+		current->prev = *sorted;
+		current->next = NULL;
+		if (*sorted != NULL)
+			(*sorted)->next = current;
+		*sorted = current;
+	}
+	else
+	{
+		current->prev = temp->prev;
+		current->next = temp;
+		if (temp->prev != NULL)
+			temp->prev->next = current;
+		else
+			*list = current;
+		temp->prev = current;
+	}
 
-	 print_list((const listint_t *)*list);
+	print_list((const listint_t *)*list);
 }
 
 /**
